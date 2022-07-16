@@ -13,6 +13,6 @@ class Student{
     }
 }
 
-const student = new Student('Bianca', 18, false)
+const student = new Student('Julia', 24, false)
 
 console.log(student.studentFormattedDate());
