@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { loginPayload } from 'src/app/models/payload/login';
+import { Component } from '@angular/core';
+import { LoginPayload } from '../../models/payload/login';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +10,27 @@ export class LoginPage {
 
   constructor() { }
 
-  public loginPayload: loginPayload = {
+  public loginPayload: LoginPayload = {
     email: '',
     password: '',
   }
 
-  public login():void {
-    console.log(this.loginPayload)
+  public isLoading: boolean = false;
+
+  public login(): void {
+    this.isLoading = true;
+    console.log(this.loginPayload);
   }
-  
+
+  public canLogin(): boolean {
+    const regex = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
+
+    const emailIsValid = regex.test(this.loginPayload.email)
+
+    if (emailIsValid && this.loginPayload.password.length >= 6)
+      return true;
+
+    return false;
+  }
+
 }
