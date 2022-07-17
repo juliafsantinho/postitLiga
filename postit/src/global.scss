@@ -10,6 +10,7 @@
  */
 
 @import url(theme/button.scss);
+@import url(theme/input.scss);
 
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
@@ -31,7 +32,7 @@
 * {
     font-family: "OpenSans";
   }
-  
+
 @font-face {
     font-family: "OpenSans";
     src: url(../../../postitLiga/postit/src/assets/fontes/static/OpenSans/OpenSans-Light.ttf);
