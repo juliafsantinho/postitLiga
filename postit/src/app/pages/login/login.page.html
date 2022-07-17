@@ -10,16 +10,17 @@
     
     <div class="container--inputs">
       <span>E-mail</span>
-      <input class="input" type="text" [(ngModel)]="loginPayload.email">
+      <input (keydown.enter)="password.focus()" class="input" type="text" [(ngModel)]="loginPayload.email">
       <span>Senha</span>
-      <input class="input" type="password" [(ngModel)]="loginPayload.password">
+      <input #password (keydown.enter)="login()" class="input" type="password" [(ngModel)]="loginPayload.password">
     </div>
-    
+
     <ion-button class="button" [class.disabled]="!canLogin()" (click)="login()">
       {{ isLoading ? 'carregando...' : 'confirmar' }}
-      <app-half-circle-spinner *ngIf="isLoading" [animationDuration]="1000" [size]="25" [color]="'white'"></app-half-circle-spinner>
+      <app-half-circle-spinner *ngIf="isLoading" [animationDuration]="1000" [size]="25" [color]="'white'">
+      </app-half-circle-spinner>
     </ion-button>
-    
+
     <p>Não possui conta? <a href="">Cadastre-se!</a></p>
   </div>
 </div>
