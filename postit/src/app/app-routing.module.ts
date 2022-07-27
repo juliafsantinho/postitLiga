@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  
   {
     path: '',
     redirectTo: 'login',
@@ -13,24 +12,26 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'feed',
-    loadChildren: () => import('./pages/main/feed/feed.module').then( m => m.FeedPageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./pages/main/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'feed',
+    loadChildren: () => import('./pages/main/feed/feed.module').then( m => m.FeedPageModule)
   },
   {
     path: 'profile',
     loadChildren: () => import('./pages/main/profile/profile.module').then( m => m.ProfilePageModule)
   },
-
-{
-  path: '**',
-  redirectTo: 'login',
-  pathMatch: 'full'
-},
-
+  {
+    path: 'feed/:id',
+    loadChildren: () => import('./pages/main/feed-detail/feed-detail.module').then( m => m.FeedDetailPageModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

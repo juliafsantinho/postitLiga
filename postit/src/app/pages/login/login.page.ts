@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { LoginPayload } from 'src/app/models/payload/login';
 import { HelperService } from 'src/app/services/helper.services';
-import { LoginPayload } from '../../models/payload/login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginPage {
 
   constructor(
     private readonly helper: HelperService,
+    private readonly router: Router,
   ) { }
 
   public loginPayload: LoginPayload = {
@@ -19,7 +21,17 @@ export class LoginPage {
     password: '',
   }
 
+  public registerPayload = {
+    name: '',
+    email: '',
+    confirmEmail: '',
+    password: '',
+    confirmPassword: '',
+  }
+
   public isLoading: boolean = false;
+
+  public isSigning: boolean = false;
 
   public async login(): Promise<void> {
     if (!this.canLogin())
@@ -43,17 +55,39 @@ export class LoginPage {
     ]);
 
     console.log(this.loginPayload);
+    await this.router.navigate(['/home']);
   }
 
   public canLogin(): boolean {
     const regex = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
 
-    const emailIsValid = regex.test(this.loginPayload.email)
+    const emailIsValid = regex.test(this.loginPayload.email);
 
     if (emailIsValid && this.loginPayload.password.length >= 6)
       return true;
 
     return false;
+  }
+
+  public canRegister(): boolean {
+    const regex = new RegExp('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
+
+    if(this.registerPayload.name.trim().length<=0)
+     return false;
+
+    if(!regex.test(this.registerPayload.email))
+      return false;
+
+    if(this.registerPayload.email !== this.registerPayload.confirmEmail)
+      return false;
+
+    if(this.registerPayload.password.length < 6)
+      return false;
+
+    if(this.registerPayload.password !== this.registerPayload.confirmPassword)
+      return false;
+
+    return true;
   }
 
   public logoClick($event: boolean): void {

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="384" height="93" viewBox="0 0 384 93">
+  <defs>
+    <filter id="Retângulo_225" x="0" y="0" width="384" height="93" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="NAV" transform="translate(13.5 13.5)">
+    <g transform="matrix(1, 0, 0, 1, -13.5, -13.5)" filter="url(#Retângulo_225)">
+      <rect id="Retângulo_225-2" data-name="Retângulo 225" width="357" height="66" rx="33" transform="translate(13.5 13.5)" fill="#fff"/>
+    </g>
+    <path id="Icon_material-home" data-name="Icon material-home" d="M15,30V21h6v9h7.5V18H33L18,4.5,3,18H7.5V30Z" transform="translate(161.48 17)" fill="none" stroke="#464646" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Icon_awesome-user" data-name="Icon awesome-user" d="M10.19,10.645A5.869,5.869,0,1,0,4.321,4.776,5.868,5.868,0,0,0,10.19,10.645Zm4.189,2.413h-.766a7.981,7.981,0,0,1-6.685,0H6.162A6.164,6.164,0,0,0,0,19.22v3.164c0,1.215.986.944,2.2.944H18.34c1.215,0,2.2.271,2.2-.944V19.22A6.164,6.164,0,0,0,14.378,13.058Z" transform="translate(273.98 23.343)" fill="none" stroke="#464646" stroke-width="1.5"/>
+    <g id="Icon_ionic-ios-calendar" data-name="Icon ionic-ios-calendar" transform="translate(57.98 50.375) rotate(-90)">
+      <path id="Caminho_80" data-name="Caminho 80" d="M25.846,6.75h-2.39V8.184a.48.48,0,0,1-.478.478h-.956a.48.48,0,0,1-.478-.478V6.75H10.068V8.184a.48.48,0,0,1-.478.478H8.634a.48.48,0,0,1-.478-.478V6.75H5.765a2.4,2.4,0,0,0-2.39,2.39V25.4a2.4,2.4,0,0,0,2.39,2.39h20.08a2.4,2.4,0,0,0,2.39-2.39V9.14A2.4,2.4,0,0,0,25.846,6.75Zm-.717,19.018c0,.657.657.106,0,.106H6.483c-.657,0,0,.657,0,0h0c0-.263-.263,0,0,0H25.128c.263,0,0-.369,0-.106Z" transform="translate(0 -0.338)" fill="#464646"/>
+      <path id="Caminho_81" data-name="Caminho 81" d="M10.912,4.978a.48.48,0,0,0-.478-.478H9.478A.48.48,0,0,0,9,4.978V6.412h1.912Z" transform="translate(-0.844)" fill="#464646"/>
+      <path id="Caminho_82" data-name="Caminho 82" d="M26.662,4.978a.48.48,0,0,0-.478-.478h-.956a.48.48,0,0,0-.478.478V6.412h1.912Z" transform="translate(-3.207)" fill="#464646"/>
+    </g>
+    <line id="Linha_101" data-name="Linha 101" y2="18" transform="translate(81.5 25.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>

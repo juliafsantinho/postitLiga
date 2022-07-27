@@ -1,8 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs/internal/Subscription';
+import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-root',
@@ -16,9 +15,9 @@ export class AppComponent implements OnDestroy {
     this.routeSubscription = router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((route: NavigationEnd) => {
-        console.log(route.url);
+        console.log(route);
 
-        if (!this.routesWithoutNavbar.includes(route.url)) {
+        if (!this.routesWithoutNavbar.includes(route.urlAfterRedirects)) {
           this.canShowNavbar = true;
         }
         else {

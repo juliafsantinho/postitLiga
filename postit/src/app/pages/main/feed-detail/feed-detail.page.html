@@ -1,0 +1,56 @@
+<div class="feed-detail">
+    <img class="detail" src="../../../../assets/images/FEED/Grupo 19.svg">
+  
+    <header>
+      <img class="go-back" src="../../../../assets/images/FEED/Grupo 1.svg" [routerLink]="['/feed']">
+      <img class="noteAndFriends" src="../../../../assets/images/FEED/Logo Feed.svg">
+    </header>
+  
+    <main>
+      <div *ngIf="postIt" class="feed-item" [style.background-color]="postIt.color">
+        <header>
+          <ion-avatar class="user--avatar">
+            <img src="../../../../assets/users/03" />
+          </ion-avatar>
+          <div class="user--info">
+            <span class="user--info--name">
+              Julia Santinho
+            </span>
+            <span class="user--info--role">
+              Desenvolvedora Junior
+            </span>
+          </div>
+        </header>
+        <main>
+          <div class="title">
+            {{ postIt.title }}
+          </div>
+          <div class="annotation">
+            {{ postIt.annotation }}
+          </div>
+          <div class="comments">
+            <ng-container *ngFor="let comment of postIt.comments">
+              <div class="comment-item">
+                <app-comment [comment]="comment"></app-comment>
+              </div>
+            </ng-container>
+          </div>
+        </main>
+        <footer [style.background-color]="postIt.color">
+          <div class="comment--section">
+            <input type="text" placeholder="Inserir comentário">
+            <button type="button"> Publicar </button>
+          </div>
+          <div class="actions--section">
+            <ng-container *ngIf="!isLiked else liked">
+              <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
+            </ng-container>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+  
+  <ng-template #liked>
+    <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
+  </ng-template>

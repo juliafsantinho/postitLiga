@@ -25,8 +25,7 @@ export class NavbarComponent {
           this.currentNavbar = NavbarEnum.PROFILE;
       });
   }
-
-  public navbarEnum: typeof NavbarEnum = NavbarEnum;
+  
   public currentNavbar: NavbarEnum = NavbarEnum.HOME;
 
   public navbarList: NavbarItemInterface[] = [
@@ -45,7 +44,7 @@ export class NavbarComponent {
     {
       type: NavbarEnum.PROFILE,
       link: '/profile',
-      icon:'../../../assets/images/perfiL/navbar_profile_disabled.svg',
+      icon:'../../../assets/images/perfil/navbar_profile_disabled.svg',
       iconActivated:'../../../assets/images/perfil/Icon awesome-user cheio.svg',
     }
   ]
