@@ -31,7 +31,7 @@
       <div class="actions--section">
         <img src="../../../assets/images/FEED/chatbubble-outline.svg" [routerLink]="['/feed', postIt.id]">
         <ng-container *ngIf="!isLiked else liked">
-          <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
+          <img src="../../../assets/images/FEED/Componente 37.svg" alt="icon heart like" (click)="setLikeToPostIt()">
         </ng-container>
       </div>
     </footer>

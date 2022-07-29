@@ -8,11 +8,12 @@ import { CommentProxy } from 'src/app/models/proxies/comment.proxy';
 })
 export class CommentComponent implements OnInit {
 
-  constructor() { }
+  
 
   @Input()
   public comment: CommentProxy;
-
+  constructor() { }
+  
   ngOnInit() {}
 
 }

@@ -8,14 +8,16 @@ import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
 })
 export class FeedItemComponent implements OnInit {
 
-  constructor() { }
-
+ 
   @Input()
   public postIt: PostItProxy;
 
   public isLiked: boolean = false;
 
+  constructor() { }
+
   ngOnInit() { }
+
 
   public setLikeToPostIt(): void {
     this.isLiked = !this.isLiked;

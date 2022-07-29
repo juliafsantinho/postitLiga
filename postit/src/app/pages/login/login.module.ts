@@ -17,6 +17,7 @@ import { LogoComponent } from 'src/app/components/logo/logo.component';
     IonicModule,
     LoginPageRoutingModule,
     HalfCircleSpinnerModule,
+    
   ],
   declarations: [
     LoginPage,
