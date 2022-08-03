@@ -4,9 +4,8 @@ import { AlertButton, AlertController, ToastController } from "@ionic/angular";
 @Injectable({
   providedIn: 'root',
 })
-/**
- * Serviço que me ajuda a enviar feedbacks para o usuário
- */
+
+/*Serviço que ajuda a enviar feedbacks aos usuários*/
 export class HelperService {
   constructor(
     private readonly toastController: ToastController,

@@ -14,6 +14,8 @@ import { FeedItemModule } from 'src/app/components/feed-item/feed-item.module';
     FeedPageRoutingModule,
     FeedItemModule,
   ],
-  declarations: [FeedPage]
+  declarations: [
+    FeedPage
+  ]
 })
 export class FeedPageModule {}

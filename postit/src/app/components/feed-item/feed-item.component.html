@@ -5,10 +5,10 @@
       </ion-avatar>
       <div class="user--info">
         <span class="user--info--name">
-          Julia Santinho
+          Bianca Lopes
         </span>
         <span class="user--info--role">
-          Desenvolvedora Junior
+          Analista de Sistemas Senior
         </span>
       </div>
       <button class="read--more" type="button" [routerLink]="['/feed', postIt.id]">
@@ -30,13 +30,10 @@
       </div>
       <div class="actions--section">
         <img src="../../../assets/images/FEED/chatbubble-outline.svg" [routerLink]="['/feed', postIt.id]">
-        <ng-container *ngIf="!isLiked else liked">
-          <img src="../../../assets/images/FEED/Componente 37.svg" alt="icon heart like" (click)="setLikeToPostIt()">
+        <ng-container>
+          <img *ngIf="isLiked" src="../../../assets/images/FEED/postit_like_heart_filled.svg" (click)="setLikeOnToPostIt()">
+          <img *ngIf="!isLiked" src="../../../assets/images/FEED/Icon ionic-ios-heart.svg" (click)="setLikeOnToPostIt()">
         </ng-container>
       </div>
     </footer>
   </div>
-  
-  <ng-template #liked>  
-    <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
-  </ng-template>

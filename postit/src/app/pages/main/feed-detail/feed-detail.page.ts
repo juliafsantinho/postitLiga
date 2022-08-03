@@ -82,8 +82,7 @@ export class FeedDetailPage implements OnInit {
     this.postIt = this.postItArray.find(post => post.id === this.postItId);
   }
 
-  public setLikeToPostIt(): void {
+  public setLikeOnToPostIt(): void {
     this.isLiked = !this.isLiked;
   }
-
 }

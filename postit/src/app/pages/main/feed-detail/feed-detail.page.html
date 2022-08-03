@@ -42,15 +42,13 @@
             <button type="button"> Publicar </button>
           </div>
           <div class="actions--section">
-            <ng-container *ngIf="!isLiked else liked">
-              <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
+            <ng-container>
+              <img *ngIf="isLiked" src="../../../../assets/images/FEED/postit_like_heart_filled.svg" (click)="setLikeOnToPostIt()">
+              <img *ngIf="!isLiked" src="../../../../assets/images/FEED/Icon ionic-ios-heart.svg" (click)="setLikeOnToPostIt()">
             </ng-container>
           </div>
         </footer>
       </div>
+      
     </main>
   </div>
-  
-  <ng-template #liked>
-    <img src="../../../assets/images/FEED/Componente 37.svg" (click)="setLikeToPostIt()">
-  </ng-template>

@@ -7,9 +7,7 @@ import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
   styleUrls: ['./postit.component.scss'],
 })
 export class PostitComponent {
-
   
-
   @Input()
   public postIt: PostItProxy;
 

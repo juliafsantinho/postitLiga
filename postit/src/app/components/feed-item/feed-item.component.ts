@@ -19,8 +19,7 @@ export class FeedItemComponent implements OnInit {
   ngOnInit() { }
 
 
-  public setLikeToPostIt(): void {
+  public setLikeOnToPostIt(): void {
     this.isLiked = !this.isLiked;
   }
-
 }

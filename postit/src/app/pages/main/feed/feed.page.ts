@@ -9,8 +9,7 @@ import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
 })
 export class FeedPage implements OnInit {
 
-  constructor() { }
-
+ 
   public postItArray: PostItProxy[] = [
     {
       id: 0,
@@ -49,6 +48,8 @@ export class FeedPage implements OnInit {
       color: PostItColorEnum.PINK
     }
   ];
+
+  constructor() { }
 
   ngOnInit() {
   }

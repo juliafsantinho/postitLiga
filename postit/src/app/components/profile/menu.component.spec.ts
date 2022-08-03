@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { ProfileItemComponent } from './menu.component';
 
-import { BackArrowComponent } from './back-arrow.component';
 
-describe('BackArrowComponent', () => {
-  let component: BackArrowComponent;
-  let fixture: ComponentFixture<BackArrowComponent>;
+
+describe('ProfileItemComponent', () => {
+  let component: ProfileItemComponent;
+  let fixture: ComponentFixture<ProfileItemComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackArrowComponent ],
+      declarations: [ ProfileItemComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BackArrowComponent);
+    fixture = TestBed.createComponent(ProfileItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

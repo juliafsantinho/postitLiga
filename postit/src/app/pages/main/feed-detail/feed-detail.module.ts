@@ -14,6 +14,8 @@ import { CommentModule } from 'src/app/components/comment/comment.module';
     FeedDetailPageRoutingModule,
     CommentModule,
   ],
-  declarations: [FeedDetailPage]
+  declarations: [
+    FeedDetailPage
+  ]
 })
 export class FeedDetailPageModule {}

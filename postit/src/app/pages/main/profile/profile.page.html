@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="profile">
+  <img class="detail" src="../../../../assets/images/FEED/Grupo 19.svg">
 
-<ion-content>
+  <div class="container">
+    <div class="p--container">
+      <img class="p--container--menu" src="../../../../assets/images/perfil/Componente 39 – 1.svg">
+      <ion-avatar class="p--container--avatar">
+        <img src="../../../../assets/images/perfil/foto.png" alt="">
+      </ion-avatar>
+      <span class="p--container--name">Julia Fonseca</span>
+      <span class="p--container--role">Desenvolvedora Junior</span>
+    </div>
+    <div class="n--container">
+      <span class="n--container--title">Notas Públicas</span>
 
-</ion-content>
+      <main>
+        <ng-container *ngFor="let post of postItArray">
+          <div class="profile-item">
+            <app-profile-item [postit]="post"></app-profile-item>
+          </div>
+        </ng-container>
+      </main>
+    </div>
+  </div>
+</div>

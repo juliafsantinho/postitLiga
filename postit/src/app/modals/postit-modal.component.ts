@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';
 import { PostItPayload } from 'src/app/models/payload/postit.payload';
-import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
+
 
 @Component({
   selector: 'app-postit-modal',
@@ -10,43 +10,38 @@ import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
   styleUrls: ['./postit-modal.component.scss'],
 })
 export class PostitModalComponent implements OnInit {
-
-  constructor(
-    private readonly modalController: ModalController
-  ) { }
-
   @Input()
   public color: PostItColorEnum;
 
   @Input()
-  public create: boolean = false;
+  public create: boolean;
 
   @Input()
-  public postIt: PostItPayload = {
+  public postit: PostItPayload = {
     id: 6,
     title: '',
     annotation: '',
-    color: PostItColorEnum.BLUE
+    color: PostItColorEnum.BLUE,
   };
+
+  constructor(public readonly modalController: ModalController) {}
 
   ngOnInit() {
     if (!this.color) {
-      this.color = this.postIt.color;
+      this.color = this.postit.color;
     }
   }
 
-  public savePostIt(): void {
-    this.postIt.color = this.color;
-
-    this.modalController.dismiss({ postit: this.postIt });
+  public savePostit(): void {
+    this.postit.color = this.color;
+    this.modalController.dismiss({ postit: this.postit });
   }
 
-  public deletePostIt(): void {
-    this.modalController.dismiss({ postit: this.postIt, isDeleted: true });
+  public deletePostit(): void {
+    this.modalController.dismiss({ postit: this.postit, isDeleted: true });
   }
 
   public closeModal(): void {
     this.modalController.dismiss({ isDeleted: false });
   }
-
 }

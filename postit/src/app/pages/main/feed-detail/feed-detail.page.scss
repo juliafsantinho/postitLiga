@@ -1,8 +1,9 @@
 .feed-detail {
-    position: relative;
+    position: absolute;
     overflow: hidden auto;
+    width: 100%;
     max-height: 100%;
-
+    
     .detail {
         position: fixed;
         top: -20px;
@@ -15,10 +16,11 @@
 
     header {
         width: 100%;
+
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 2rem 0;
+        margin: 1.8rem 0;
 
         .go-back {
             position: absolute;
@@ -26,74 +28,77 @@
             width: 1rem;
         }
 
-        .noteAndFriends {
+        .note-and-friends {
             width: 7rem;
         }
     }
 
     main {
-        padding: 1.5rem;
-
+        padding: 0 1.4rem 1.4rem 1.4rem;
+        
         .feed-item {
             width: 100%;
             z-index: 100;
             padding: 1rem;
-            max-height: 39rem;
+            max-height: 41rem;
             overflow: hidden auto;
             position: relative;
 
             header {
                 display: flex;
                 align-items: center;
-
+                margin: .6rem 0;
+    
+            
                 .user--avatar {
                     width: 3rem;
                     height: 3rem;
                 }
-
+            
                 .user--info {
+                    flex: 1;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
-                    justify-content: center;
-                    flex: 1;
+        
                     padding-left: 1.5rem;
-
+            
                     span {
                         color: #4E4E4E;
                     }
-
+            
                     &--name {
                         font-size: 1rem;
                         font-style: italic;
                         font-weight: bold;
                     }
-
+            
                     &--role {
-                        font-size: 0.7rem;
+                        font-size: .7rem;
                     }
                 }
-
+            
                 .read--more {
                     width: 5rem;
                     height: 2rem;
                     background: none;
                     border: none;
-                    color: #4E4E4E;
                     font-weight: bold;
+            
+                    color: #4E4E4E;
                 }
             }
-
+            
             main {
                 padding: 1rem;
                 color: #4E4E4E;
                 min-height: 15rem;
                 margin-bottom: 3rem;
-
+        
                 .title {
-                    font-weight: bold;
+                    font-weight: bold; 
                 }
-
+        
                 .annotation {
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -101,55 +106,54 @@
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 8;
                     line-clamp: 8;
-                    margin-bottom: 1.5rem;
+                    margin-bottom: 2.2rem;
                 }
-
+                
                 .comment-item {
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.4rem;
                 }
             }
-
+            
             footer {
-                position: fixed;
                 display: flex;
-                bottom: 8rem;
+                position: fixed;
+                bottom: 9rem;
                 height: 2rem;
-
+            
                 .comment--section {
-                    flex: 1;
+                    flex: 1;    
                     display: flex;
                     align-items: center;
                     justify-content: space-evenly;
                     border-radius: 1rem;
                     border: 1px solid #000;
                     padding: 0 0.4rem;
-
+        
                     input {
-                        background: transparent;
+                        background-color: transparent;
                         border: none;
                         color: #000;
                         outline: 0;
                     }
-
+        
                     button {
                         background: none;
                         color: #4E4E4E;
                     }
                 }
-            }
-
-            .actions--section {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-                width: 5rem;
-
-                img {
-                    width: 1.5rem;
-                    height: 1.5rem;
+            
+                .actions--section {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    width: 5rem;
+                
+                    img {
+                        width: 1.4rem;
+                        height: 1.4rem;
+                    }
                 }
             }
         }
     }
-
 }
