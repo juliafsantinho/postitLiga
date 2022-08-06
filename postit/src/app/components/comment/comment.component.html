@@ -1,11 +1,13 @@
 <div class="comment">  
     <ion-avatar class="user--avatar">
-      <img src="../../../assets/users/02" alt="avatar" />
+      <img [src]="comment.user?.imageUrl || '../../../assets/users/02'" alt="avatar" />
 </ion-avatar>
-    <div class="comment--info">
-      <span class="comment--info--user--name">Sandra Genini</span>
-      <span>
-        {{ comment.comment }}
-      </span>
-    </div>
-  </div>
+<div class="comment--info">
+  <span class="comment--info--user--name">
+    {{ comment.user?.name }}
+  </span>
+  <span>
+    {{ comment.comment }}
+  </span>
+</div>
+</div>
