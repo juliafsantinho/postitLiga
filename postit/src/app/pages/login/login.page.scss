@@ -1,121 +1,5 @@
-.background {
-  width: 100%;
-  height: 35vh;
-  object-fit: cover;
-}
-
-.detail {
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.3;
-  object-fit: cover;
-}
-
-.container {
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  height: 95vh;
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
-  background-color: #fff;
-  transition: transform 300ms ease-in;
-
-  transform: translateY(-60px);
-
-  &--header {
-      padding: 5vh 0 5vh 0;
-
-      app-logo {
-          width: 22%;
-          transition: width 500ms;
-      
-          @media screen and (min-width:600px) {
-              width: 15%;
-          }
-
-          @media screen and (min-width:800px) {
-              width: 10%;
-          }
-      }
-  }
-
-  &--header__row {
-      display: flex;
-      flex-direction: row;
-      padding: 0;
-
-      width: 80%;
-      height: 13vh;
-      transition: width 500ms;
-
-      img {
-          width: 4%;
-          margin-right: 3%;
-      }
-
-      app-logo {
-          width: 11%;
-      }
-  }
-
-
-  &--inputs {
-      animation: fade 0.5s;
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-
-      span {
-          color: #707070;
-          font-weight: bold;
-          letter-spacing: 1px;
-          margin-bottom: 0.5rem;
-          font-style: italic;
-          font-size: 0.88rem;
-          padding-left: 1rem;
-      }
-  }
-
-  p {
-      color: #707070;
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-
-      span {
-          color: #2D9FDB;
-          text-decoration: none;
-      }
-  }
-}
-
-.container--sign {
-  transform: translateY(-270px);
-
-
-  p {
-      color: #707070;
-      margin: 1.5rem 1rem 0 1rem;
-      font-size: 0.7rem;
-  }
-
-  p:nth-last-of-type(1) {
-      margin-top: .5rem;
-  }
-}
-
-.container--login {
-  animation: .5s ease-out 0s 1;
-}
-
-.disabled {
-  opacity: 0.6;
+.disabled, button[disabled] {
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -123,13 +7,146 @@ app-half-circle-spinner {
   margin-left: 1rem;
 }
 
+.body {
+  position: absolute;
+  bottom: 0;
+
+  height: 75%;
+  transition: height 250ms cubic-bezier(1, 0, 0.58, 1);
+  width: 100%;
+  padding: 3rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 20px 20px 0 0;
+  background: white;
+  color: var(--postit-font-grey);
+
+  >* {
+    animation: fade 0.25s;
+  }
+
+  header {
+    width: 100%;
+    transition: 500ms;
+
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      transition: width 500ms;
+
+      &--img {
+        transform: scale(1);
+        transition: all 500ms;
+      }
+    }
+  }
+}
+
+
+.login {
+  &--inputs {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-style: italic;
+    background: white;
+    color: black;
+
+    .login--inputs--title {
+      color: #707070;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-style: italic;
+      padding-left: 1rem;
+    }
+
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &--footer {
+    display: flex;
+    font-size: small;
+    color: #707070;
+
+    &-register {
+      color: #2D9FDB;
+    }
+  }
+
+  &--confirm {
+    margin-top: 2rem;
+  }
+
+}
+
+.input-default {
+  padding: 1rem;
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: 0;
+  border-radius: 20px;
+
+  background: transparent;
+  font-size: small;
+}
+
+.button-default {
+  padding: 1.5rem;
+
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+
+  background-color: #2D9FDB;
+  border-radius: 50px;
+}
+
+
+.signing {
+  &--body {
+    height: 95%;
+  }
+
+  &--logo {
+    width: 20% !important;
+
+    &--img {
+      height: 3rem;
+    }
+  }
+}
+
+.signup {
+  &--required {
+    padding: 0 0 1rem 1rem;
+    font-size: small;
+    font-weight: bold;
+    font-style: normal;
+  }
+}
+
 
 @keyframes fade {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   100% {
-      opacity: 1;
+    opacity: 1;
   }
+}
+
+.hidden {
+  visibility: hidden;
+  width: 0;
 }
