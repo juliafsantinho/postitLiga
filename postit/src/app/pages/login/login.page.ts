@@ -25,11 +25,15 @@ export class LoginPage {
   public registerPayload = {
     name: '',
     email: '',
-    confirmEmail: '',
+    repeatEmail: '',
     password: '',
-    confirmPassword: '',
+    repeatPassword: '',
   }
 
+  public showSign = false;
+
+  public isRegistering = false;
+ 
   public isLoading: boolean = false;
 
   public isSigning: boolean = false;
@@ -70,13 +74,13 @@ export class LoginPage {
     if(!regex.test(this.registerPayload.email))
       return false;
 
-    if(this.registerPayload.email !== this.registerPayload.confirmEmail)
+    if(this.registerPayload.email !== this.registerPayload.repeatEmail)
       return false;
 
     if(this.registerPayload.password.length < 6)
       return false;
 
-    if(this.registerPayload.password !== this.registerPayload.confirmPassword)
+    if(this.registerPayload.password !== this.registerPayload.repeatPassword)
       return false;
 
     return true;
