@@ -1,25 +1,67 @@
-<div class="profile">
-  <img class="detail" src="../../../../assets/images/FEED/Grupo 19.svg">
+<ion-content>
 
-  <div class="container">
-    <div class="p--container">
-      <img class="p--container--menu" src="../../../../assets/images/perfil/Componente 39 – 1.svg">
-      <ion-avatar class="p--container--avatar">
-        <img src="../../../../assets/images/perfil/foto.png" alt="">
-      </ion-avatar>
-      <span class="p--container--name">Julia Fonseca</span>
-      <span class="p--container--role">Desenvolvedora Junior</span>
+  <div class="profile" [class.settings-enable--profile]="isSettingsEnabled">
+
+    <div class="profile--background">
+      <img src="../../../../assets/images/Grupo 19.svg" alt="">
     </div>
-    <div class="n--container">
-      <span class="n--container--title">Notas Públicas</span>
 
-      <main>
-        <ng-container *ngFor="let post of postItArray">
-          <div class="profile-item">
-            <app-profile-item [postit]="post"></app-profile-item>
-          </div>
+    <div class="profile--container">
+      <header class="profile--header">
+        <div class="profile--header--img">
+          <img [src]="myUser?.imageUrl || '../../../../assets/users/03'" alt="">
+        </div>
+
+        <span class="profile--header--name"><b>{{ myUser?.name }}</b></span>
+
+        <span class="profile--header--profession"><b>{{ myUser?.role }}</b></span>
+
+        <div class="profile--header--menu">
+          <img id="hamburger" (click)="isSettingsEnabled = true" src="../../../../assets/images/perfil/Componente 39 – 1.svg" alt="">
+        </div>
+      </header>
+
+      <section class="profile--title">
+        <p><b>NOTAS PÚBLICAS</b></p>
+      </section>
+
+      <div class="postit">
+        <ng-container *ngFor="let postit of post">
+          <app-feed-item [postIt]="postit"></app-feed-item>
         </ng-container>
-      </main>
+      </div>
     </div>
   </div>
-</div>
+
+
+</ion-content>
+
+
+<section
+  class="config"
+  [class.settings-enable]="isSettingsEnabled">
+  <header>
+
+    <ion-icon class="config--backbutton"
+     name="arrow-back-outline"
+     (click)="isSettingsEnabled = false"
+     ></ion-icon>
+
+    <span><b>Ajustes</b></span>
+  </header>
+
+  <div class="config--list">
+  <p (click)="clickConfigList(0)">Ajustes</p>
+  <p (click)="clickConfigList(1)">Ajustes</p>
+  <p (click)="clickConfigList(2)">Ajustes</p>
+  <p (click)="clickConfigList(3)">Sair</p>
+  </div>
+
+  <footer>
+    <img src="../../../../assets/images/LOGO.svg" alt="">
+  </footer>
+
+</section>
+
+
+<div class="brightness" [class.settings-enable--brightness]="isSettingsEnabled"></div>

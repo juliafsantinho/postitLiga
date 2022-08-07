@@ -1,68 +1,75 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';
+import { FeedPostItProxy } from 'src/app/models/proxies/feed-postit.proxy';
 import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
+import { UserProxy } from 'src/app/models/proxies/user.proxy';
+import { HelperService } from 'src/app/services/helper.services';
+import { NoteService } from 'src/app/services/note.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage {
 
-  public postItArray: PostItProxy[] = [
-    {
-      id: 0,
-      title: 'Java',
-      annotation: 'Paragraph porttitor libero a metus mollis, a condimentum enim dignissim. Phasellus feugiat risus in odio imperdiet, at convallis dolor venenatis. Ut eu interdum nulla. Orci varius natoque penatibus et magnis dis parturient montes,',
-      color: PostItColorEnum.GREEN,
-    },
-    {
-      id: 1,
-      title: 'Como ter uma rotina programando',
-      annotation: 'Paragraph porttitor libero a metus mollis, a condimentum enim dignissim. Phasellus feugiat risus in odio imperdiet, at convallis dolor venenatis. Ut eu interdum nulla. Orci varius natoque penatibus et magnis dis parturient montesr',
-      color: PostItColorEnum.YELLOW,
-    },
-    {
-      id: 2,
-      title: 'Diferença entre Java e JavaScript',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender',
-      color: PostItColorEnum.RED,
-    },
-    {
-      id: 3,
-      title: 'Titulo do post 3',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender',
-      color: PostItColorEnum.PINK,
-    },
-    {
-      id: 4,
-      title: 'Titulo do post 4',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender',
-      color: PostItColorEnum.PURPLE,
-    },
-    {
-      id: 5,
-      title: 'Titulo do post 5',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender',
-      color: PostItColorEnum.RED,
-    },
-    {
-      id: 6,
-      title: 'Titulo do post 6',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender Lorem Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender Lorem',
-      color: PostItColorEnum.BLUE,
-    },
-    {
-      id: 7,
-      title: 'Titulo do post 7',
-      annotation: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, itaque! Consectetur dolores praesentium reprehender',
-      color: PostItColorEnum.GREEN,
-    },
-  ];
-  
-  constructor() { }
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+    private readonly noteService: NoteService,
+    private readonly helper: HelperService,
+  ) { }
+
+
+  @Input()
+  public myPostits: PostItProxy[] = [];
+
+  public isSettingsEnabled: boolean = false;
+
+  public myUser: UserProxy;
+
+  public loading: boolean = false;
+
+  public post: FeedPostItProxy[];
+
+
+  public async ionViewDidEnter(): Promise<void> {
+    this.loading = true;
+    const [note, message] = await this.noteService.getMyFeedNotes();
+
+    // TODO: IMPLEMENTAR GETME
+    const success = JSON.parse(localStorage.getItem(environment.keys.user));
+    this.loading = false;
+
+    if (!success) {
+      this.helper.showToast('Erro ao carregar usuário.')
+    }
+
+    if (!note) {
+      return void this.helper.showToast(message);
+    }
+
+    this.post = note;
+    this.myUser = success;
   }
+
+  public async clickConfigList(index: 0 | 1 | 2 | 3): Promise<void> {
+    switch (index) {
+      case 1: {
+        break;
+      }
+      case 2: {
+        break;
+      }
+      case 3: {
+        localStorage.clear();
+        await this.router.navigate(['/login']);
+        break;
+      }
+    }
+  }
+
 
 }

@@ -7,8 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
-import { ProfileItemModule } from 'src/app/components/profile/menu.module';
-
+import { FeedItemModule } from 'src/app/components/feed-item/feed-item.module';
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import { ProfileItemModule } from 'src/app/components/profile/menu.module';
     FormsModule,
     IonicModule,
     ProfilePageRoutingModule,
-    ProfileItemModule,
+    FeedItemModule,
   ],
   declarations: [ProfilePage]
 })
