@@ -15,17 +15,13 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProfilePage {
 
-  //#region Constructor
-  constructor(
+    constructor(
     private router: Router,
     private readonly noteService: NoteService,
     private readonly helper: HelperService,
   ) {}
 
-  //#endregion
-
-  //#region Public Properties
-
+ 
   @Input()
   public myPostits: PostItProxy[] = [];
 
@@ -39,9 +35,7 @@ export class ProfilePage {
 
   public profileSettingsEnum: typeof ProfileSettingsEnum = ProfileSettingsEnum;
 
-  //#endregion
 
-  //#region Public Methods
   public async ionViewDidEnter(): Promise<void> {
     this.loading = true;
     const [note, message] = await this.noteService.getMyFeedNotes();
@@ -74,6 +68,5 @@ export class ProfilePage {
     }
   }
 
-  //#endregion
 
 }
