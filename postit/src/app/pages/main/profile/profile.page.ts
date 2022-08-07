@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';
+import { ProfileSettingsEnum } from 'src/app/models/enums/profile-settings.enum';
 import { FeedPostItProxy } from 'src/app/models/proxies/feed-postit.proxy';
 import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
 import { UserProxy } from 'src/app/models/proxies/user.proxy';
@@ -15,13 +15,16 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class ProfilePage {
 
-
+  //#region Constructor
   constructor(
     private router: Router,
     private readonly noteService: NoteService,
     private readonly helper: HelperService,
-  ) { }
+  ) {}
 
+  //#endregion
+
+  //#region Public Properties
 
   @Input()
   public myPostits: PostItProxy[] = [];
@@ -34,7 +37,11 @@ export class ProfilePage {
 
   public post: FeedPostItProxy[];
 
+  public profileSettingsEnum: typeof ProfileSettingsEnum = ProfileSettingsEnum;
 
+  //#endregion
+
+  //#region Public Methods
   public async ionViewDidEnter(): Promise<void> {
     this.loading = true;
     const [note, message] = await this.noteService.getMyFeedNotes();
@@ -55,21 +62,18 @@ export class ProfilePage {
     this.myUser = success;
   }
 
-  public async clickConfigList(index: 0 | 1 | 2 | 3): Promise<void> {
-    switch (index) {
-      case 1: {
-        break;
-      }
-      case 2: {
-        break;
-      }
-      case 3: {
-        localStorage.clear();
-        await this.router.navigate(['/login']);
-        break;
-      }
+  public async clickConfigList(selectedSettings: ProfileSettingsEnum): Promise<void> {
+
+    if(selectedSettings === ProfileSettingsEnum.EXIT){
+      localStorage.clear();
+      return void await this.router.navigate(['/login']);
+    }
+
+    if(selectedSettings === ProfileSettingsEnum.ABOUT_US){
+      return void this.helper.showToast('Projeto Bootcamp LIGA - 2022', 5_000)
     }
   }
 
+  //#endregion
 
 }
