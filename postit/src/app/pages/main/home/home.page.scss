@@ -1,5 +1,5 @@
 .home {
-    background-color: white;
+    
 
     header {
         width: 100%;
@@ -12,6 +12,17 @@
         img {
             width: 4rem;
         }
+    }
+    
+    .detail {
+        position: fixed;
+        top: -20px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+
     }
 
     main {
