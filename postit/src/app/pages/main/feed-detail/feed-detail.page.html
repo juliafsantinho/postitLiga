@@ -3,22 +3,22 @@
   
     <header>
       <img class="go-back" src="../../../../assets/images/FEED/Grupo 1.svg" [routerLink]="['/feed']">
-      <img class="noteAndFriends" src="../../../../assets/images/FEED/Logo Feed.svg">
+      <img class="noteAndFriends" src="../../../../assets/images/LOGO.svg">
     </header>
   
     <main>
-      <div *ngIf="postIt" class="feed-item" [style.background-color]="postIt.color">
+      <div
+        *ngIf="postIt"
+        class="feed-item"
+        [style.background-color]="postIt.color"
+      >
         <header>
           <ion-avatar class="user--avatar">
             <img [src]="postIt.user?.imageUrl || '../../../../assets/users/03'" />
           </ion-avatar>
           <div class="user--info">
-            <span class="user--info--name">
-              {{ postIt.user?.name }}
-            </span>
-            <span class="user--info--role">
-              {{ postIt.user?.role }}
-            </span>
+            <span class="user--info--name"> {{ postIt.user?.name }} </span>
+            <span class="user--info--role"> {{ postIt.user?.role }} </span>
           </div>
         </header>
         <main>
