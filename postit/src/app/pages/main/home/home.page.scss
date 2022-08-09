@@ -1,16 +1,6 @@
-
 .home {
+    background-color: white;
 
-    .detail {
-        position: fixed;
-        top: -20px;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        z-index: -1;
-    }
-   
     header {
         width: 100%;
 
@@ -39,10 +29,9 @@
         }
     }
 
-  
     &--new-postit {
         position: fixed;
-        left: 18rem;
+        left: 16.6rem;
         bottom: 10rem;
 
         display: flex;
@@ -87,4 +76,3 @@
         }
     }
 }
-

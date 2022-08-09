@@ -6,13 +6,12 @@ import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
 import { HelperService } from 'src/app/services/helper.services';
 import { NoteService } from 'src/app/services/note.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
   constructor(
     private readonly modalController: ModalController,
     private readonly note: NoteService,
@@ -25,7 +24,7 @@ export class HomePage implements OnInit {
 
   public postItColorEnum: typeof PostItColorEnum = PostItColorEnum;
 
-  public async ngOnInit(): Promise<void> {
+  public async ionViewDidEnter(): Promise<void> {
     await this.loadMyNotes();
   }
 
