@@ -38,7 +38,7 @@
         $img-size: 7rem;
         height: $img-size;
         width: $img-size;
-        margin-top: calc($img-size/4);
+        margin-top: -$img-size/4;
   
         img{
           border-radius: 50%;
@@ -60,7 +60,9 @@
         position: absolute;
         top: 3rem;
         right: 1.5rem;
-        
+        img{
+  
+        }
       }
     }
   

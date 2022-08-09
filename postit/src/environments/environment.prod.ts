@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://postit-liga.herokuapp.com',
+  apiBaseUrl: 'https://liga-bootcamp-postit.herokuapp.com',
   keys: {
     token: '@post-it/token',
     user: '@post-it/user',
