@@ -5,7 +5,6 @@ import { PostItPayload } from 'src/app/models/payload/postit.payload';
 import { HelperService } from '../services/helper.services';
 import { NoteService } from '../services/note.service';
 
-
 @Component({
   selector: 'app-postit-modal',
   templateUrl: './postit-modal.component.html',
@@ -26,7 +25,7 @@ export class PostitModalComponent implements OnInit {
 
   @Input()
   public postIt: PostItPayload = {
-    id: 6,
+    id: 0,
     title: '',
     annotation: '',
     color: PostItColorEnum.BLUE,
