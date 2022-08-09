@@ -9,25 +9,30 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-  public canShowNavbar = false;
-  public routesWithoutNavbar: string[] = ['/login'];
-  public routeSubscription: Subscription;
-
   constructor(
     private readonly router: Router,
   ) {
     this.routeSubscription = router.events
-    .pipe(filter(event => event instanceof NavigationEnd))
-    .subscribe((route: NavigationEnd) => {
-      const url: string = route.urlAfterRedirects;
-      const include = this.routesWithoutNavbar.includes(url);
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((route: NavigationEnd) => {
+        console.log(route);
 
-      if (!include) { this.canShowNavbar = true; }
-       else { this.canShowNavbar = false; }
-    });
+        if (!this.routesWithoutNavbar.includes(route.urlAfterRedirects)) {
+          this.canShowNavbar = true;
+        }
+        else {
+          this.canShowNavbar = false;
+        }
+      });
   }
+
+  public canShowNavbar: boolean = false;
+  public routesWithoutNavbar: string[] = ['/login'];
+
+  public routeSubscription: Subscription;
 
   public ngOnDestroy(): void {
     this.routeSubscription.unsubscribe();
-  };
+  }
+
 }

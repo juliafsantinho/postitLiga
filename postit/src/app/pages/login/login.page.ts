@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { LoginPayload } from 'src/app/models/payload/login';
-import { HelperService } from 'src/app/services/helper.services';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { RegisterPayload } from 'src/app/models/payload/create-user.payload';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { RegisterPayload } from "src/app/models/payload/create-user.payload";
+import { LoginPayload } from "src/app/models/payload/login";
+import { AuthService } from "src/app/services/auth.service";
+import { HelperService } from "src/app/services/helper.services";
 
 @Component({
   selector: 'app-login',
@@ -31,28 +31,9 @@ export class LoginPage {
     repeatPassword: '',
   }
 
-  public showSign = false;
-
-  public isRegistering = false;
- 
   public isLoading: boolean = false;
 
   public isSigning: boolean = false;
-
-  public async register(): Promise<void> {
-    if (!this.canRegister())
-      return;
-
-    this.isLoading = true;
-    const [isSuccess, message] = await this.auth.register(this.registerPayload);
-    this.isLoading = false;
-
-    if (isSuccess)
-      return void await this.router.navigate(['/home']);
-
-    // alert
-    await this.helper.showToast(message, 5_000);
-  }
 
   public async login(): Promise<void> {
     if (!this.canLogin())
@@ -106,4 +87,18 @@ export class LoginPage {
     console.log($event);
   }
 
+  public async register(): Promise<void> {
+    if (!this.canRegister())
+      return;
+
+    this.isLoading = true;
+    const [isSuccess, message] = await this.auth.register(this.registerPayload);
+    this.isLoading = false;
+
+    if (isSuccess)
+      return void await this.router.navigate(['/home']);
+
+    // alert
+    await this.helper.showToast(message, 5_000);
+  }
 }
