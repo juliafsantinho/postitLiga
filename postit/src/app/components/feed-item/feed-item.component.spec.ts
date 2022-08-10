@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { FeedItemComponent } from './FeedItemComponent';
 
-import { FeedItemComponent } from './feed-item.component';
+
 
 describe('FeedItemComponent', () => {
   let component: FeedItemComponent;

@@ -18,21 +18,21 @@
 
   <header>
     <input [readOnly]="!create"
-           class="postit-modal--title"
-           type="text"
-           [(ngModel)]="postIt.title"
+           class="postit-modal--title" 
+           type="text" 
+           [(ngModel)]="postIt.title" 
            placeholder="Título da nota">
   </header>
 
   <main>
     <textarea [readOnly]="!create"
-              class="postit-modal--annotation"
-              [(ngModel)]="postIt.annotation"
+              class="postit-modal--annotation" 
+              [(ngModel)]="postIt.annotation" 
               placeholder="Inserir anotações aqui"></textarea>
   </main>
 
   <footer>
-    <span [class.disabled]="isLoading" (click)="savePostIt()">Colar no mural</span>
+    <span (click)="savePostIt()">Colar no mural</span>
 
     <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
   </footer>

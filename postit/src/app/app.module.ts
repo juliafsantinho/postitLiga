@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpAsyncModule } from './modules/http-async.module';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],

@@ -1,3 +1,4 @@
+
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';

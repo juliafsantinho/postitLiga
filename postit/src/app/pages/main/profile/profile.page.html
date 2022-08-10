@@ -1,67 +1,61 @@
-<ion-content>
-
-  <div class="profile" [class.settings-enable--profile]="isSettingsEnabled">
-
-    <div class="profile--background">
-      <img src="../../../../assets/images/perfil/Grupo 19.svg" alt="">
-    </div>
-
-    <div class="profile--container">
-      <header class="profile--header">
-        <div class="profile--header--img">
-          <img [src]="myUser?.imageUrl || '../../../../assets/users/03'" alt="">
-        </div>
-
-        <span class="profile--header--name"><b>{{ myUser?.name }}</b></span>
-
-        <span class="profile--header--profession"><b>{{ myUser?.role }}</b></span>
-
-        <div class="profile--header--menu">
-          <img id="hamburger" (click)="isSettingsEnabled = true" src="../../../../assets/images/perfil/Componente 39 – 1.svg" alt="">
+<div class="profile">
+  <ion-menu side="end" content-id="main-content" menuId="sidebar" >
+      <ion-toolbar translucent>
+        <ion-title class="sidebar--title">Ajustes</ion-title>
+      </ion-toolbar>
+    <ion-content >
+      <ion-list lines="none" class="sidebar">
+        <ion-item>
+          <ion-label (click)="clickConfigList(1)">Ajustes</ion-label>
+        </ion-item>
+          <ion-item>
+            <ion-label (click)="clickConfigList(2)">Ajustes</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label (click)="clickConfigList(3)">About Us</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label (click)="clickConfigList(4)">Sair</ion-label>
+          </ion-item>
+      </ion-list>
+      <img src="../../../../assets/images/LOGO.svg" alt="Logo" class="logo">
+    </ion-content>
+  </ion-menu>
+  <div class="background"></div>
+  <img class="detail" src="../../../../assets/images/FEED/Grupo 19.svg">
+    <div class="container">
+      <header>
+      <div class="container--header">
+        <ion-avatar class="user--avatar">
+          <img [src]="myUser?.imageUrl || '../../../../assets/users/03'" alt="" />
+        </ion-avatar>
+        <button class="hamburguerButton" (click)="openMenu()" id="main-content">
+          <mat-icon>
+            menu
+             <ion-menu-button>
+             </ion-menu-button>
+            </mat-icon>
+        </button>
+      </div>
+        <div class="user--info">
+          <span class="user--info--name">
+            {{myUser?.name}}
+          </span>
+          <span class="user--info--role">
+            {{myUser?.role}}
+          </span>
+          <span class="user--info--public">
+            NOTAS PÚBLICAS
+          </span>
         </div>
       </header>
 
-      <section class="profile--title">
-        <p><b>NOTAS PÚBLICAS</b></p>
-      </section>
-
-      <div class="postit">
-        <ng-container *ngFor="let postit of post">
-          <app-feed-item [postIt]="postit"></app-feed-item>
-        </ng-container>
-      </div>
+        <main>
+          <ng-container *ngFor="let post of myPostsits">
+            <div class="feed-item">
+              <app-feed-item [postIt]="post"></app-feed-item>
+            </div>      
+          </ng-container>
+        </main>
     </div>
-  </div>
-
-
-</ion-content>
-
-
-<section
-  class="config"
-  [class.settings-enable]="isSettingsEnabled">
-  <header>
-
-    <ion-icon class="config--backbutton"
-     name="arrow-back-outline"
-     (click)="isSettingsEnabled = false"
-     ></ion-icon>
-
-    <span><b>Ajustes</b></span>
-  </header>
-
-  <div class="config--list">
-  <p (click)="clickConfigList(profileSettingsEnum.EDIT_PROFILE)">Editar perfil</p>
-  <p (click)="clickConfigList(profileSettingsEnum.EDIT_PROFILE_PICTURE)">Editar foto de perfil</p>
-  <p (click)="clickConfigList(profileSettingsEnum.EXIT)">Sair</p>
-  <p (click)="clickConfigList(profileSettingsEnum.ABOUT_US)">Sobre nós</p>
-  </div>
-
-  <footer>
-    <img src="assets/imgs/login_logo.svg" alt="">
-  </footer>
-
-</section>
-
-
-<div class="brightness" [class.settings-enable--brightness]="isSettingsEnabled"></div>
+</div>

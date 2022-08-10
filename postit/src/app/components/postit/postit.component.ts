@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { PostItProxy } from "src/app/models/proxies/postit.proxy";
 
 @Component({
   selector: 'app-postit',

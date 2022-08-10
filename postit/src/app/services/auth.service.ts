@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+
 import { TokenProxy } from '../models/proxies/token.proxy';
 import { apiRoutes } from '../../environments/api-routes';
 import { environment } from '../../environments/environment.prod';
@@ -6,6 +6,7 @@ import { HttpAsyncService } from '../modules/http-async/services/http.async.serv
 import { CreateUserPayload} from '../models/payload/create-user.payload';
 import { AsyncResult } from '../models/interfaces/async-result';
 import { UserProxy } from '../models/proxies/user.proxy';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',

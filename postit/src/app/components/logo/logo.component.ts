@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+
 
 @Component({
   selector: 'app-logo',
@@ -6,18 +7,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./logo.component.scss'],
 })
 export class LogoComponent {
+  @Input()
+  public src: string;
 
   @Input()
-  public src: string = '';
+  public alt: string;
 
   @Input()
-  public full: boolean = false;
+  public full: boolean;
 
   @Output()
   public onClick: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  constructor() {}
+
   public sendEvent(): void {
     this.onClick.emit(true);
   }
-
 }

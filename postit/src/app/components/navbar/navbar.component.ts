@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -17,6 +18,7 @@ export class NavbarComponent {
     router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((route: NavigationEnd) => {
+        
         if (route.url.includes('/feed'))
           this.currentNavbar = NavbarEnum.FEED;
         if (route.url.includes('/home'))
@@ -26,6 +28,7 @@ export class NavbarComponent {
       });
   }
 
+  public navbarEnum: typeof NavbarEnum = NavbarEnum;
   public currentNavbar: NavbarEnum = NavbarEnum.HOME;
 
   public navbarList: NavbarItemInterface[] = [

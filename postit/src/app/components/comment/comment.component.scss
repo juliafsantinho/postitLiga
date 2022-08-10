@@ -1,20 +1,19 @@
-.comment {
+.comment{
     display: flex;
 
-    .user--avatar {
+    .user--avatar{
         width: 2.5rem;
         height: 2.5rem;
     }
 
-    &--info {
+    &--info{
         display: flex;
-        flex: 1;
-        flex-direction: column;        
-        padding-left: 0.5rem;
-        color: #4E4E4E;
+        flex:1;
+        flex-direction: column;
+        color: #4E4E4E
+    }
 
-        &--user--name {
-            font-weight: bold;
-        }
+    &--user-name{
+        font-weight: bold;
     }
 }

@@ -1,8 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';
 import { FeedPostItProxy } from 'src/app/models/proxies/feed-postit.proxy';
-import { PostItProxy } from 'src/app/models/proxies/postit.proxy';
 import { HelperService } from 'src/app/services/helper.services';
 import { NoteService } from 'src/app/services/note.service';
 

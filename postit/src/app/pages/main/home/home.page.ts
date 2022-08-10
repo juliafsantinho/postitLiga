@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PostitModalComponent } from 'src/app/modals/postit-modal.component';
 import { PostItColorEnum } from 'src/app/models/enums/postit-color.enum';
@@ -10,8 +11,9 @@ import { NoteService } from 'src/app/services/note.service';
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
+  
 })
-export class HomePage {
+export class HomePage implements OnInit {
   constructor(
     private readonly modalController: ModalController,
     private readonly note: NoteService,
@@ -24,8 +26,8 @@ export class HomePage {
 
   public postItColorEnum: typeof PostItColorEnum = PostItColorEnum;
 
-  public async ionViewDidEnter(): Promise<void> {
-    await this.loadMyNotes();
+ public async ngOnInit(): Promise<void> {
+    await this.loadMyNotes()
   }
 
   public async loadMyNotes(): Promise<void> {
