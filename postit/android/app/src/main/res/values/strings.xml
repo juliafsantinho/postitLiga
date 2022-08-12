@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">postit</string>
     <string name="title_activity_main">postit</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">com.liga.postit</string>
+    <string name="custom_url_scheme">com.liga.postit</string>
 </resources>
